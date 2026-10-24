@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b0d11">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>YouTube Channel Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="ChannelScope home">
+        <span class="brand-mark" aria-hidden="true">▶</span>
+        <span>Channel<span class="brand-light">Scope</span></span>
+      </a>
+      <span class="topbar-note"><span class="status-dot"></span> Public channel insights</span>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Creator intelligence, made simple</p>
+          <h1>Know the channel.<br><span>See the bigger picture.</span></h1>
+          <p class="hero-description">Explore public stats, channel details, and recent uploads from across YouTube.</p>
+        </div>
+        <div class="search-card">
+          <label for="channel-query">Find a YouTube channel</label>
+          <form id="search-form" class="search-form">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="channel-query" name="q" type="search" placeholder="Try MKBHD, TED, or a channel name" maxlength="100" autocomplete="off" required>
+            <button id="search-button" type="submit"><span>Search</span><span aria-hidden="true">→</span></button>
+          </form>
+          <p class="search-hint">Search by channel name or brand. No account needed.</p>
+        </div>
+      </section>
+
+      <section id="feedback" class="feedback" role="status" aria-live="polite" hidden></section>
+      <section id="search-results" class="results-section" aria-live="polite" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Search results</p>
+            <h2>Choose the right channel</h2>
+          </div>
+          <span id="results-count" class="result-count"></span>
+        </div>
+        <div id="channel-list" class="channel-list"></div>
+      </section>
+
+      <section id="dashboard" class="dashboard" hidden></section>
+
+      <footer class="footer">
+        <span>ChannelScope</span>
+        <span>Powered by YouTube Data API v3</span>
+      </footer>
+    </main>
+  </body>
+</html>
